@@ -25,6 +25,9 @@ public abstract class Employee implements Employable { //implementacja interfejs
     public double getSalary(){ //metoda publiczna getSalary
         return salary; //zwracanie salary
     }
+    public int getId() {
+        return id;
+    }
 
     public String getHireDate(){ //metoda publiczna zwracajaca hireDate
         return hireDate;
@@ -36,6 +39,17 @@ public abstract class Employee implements Employable { //implementacja interfejs
 
     public int hashCode(){
         return id;
+    }
+
+    public boolean equals(Object obj){ //metoda equals ktora sprawdza czy obiekt jest rowny
+        if (this == obj){ //obj to obiekt do porownania
+            return true; //jesli mają to samo id to zwraca true
+        }
+        if (obj == null || getClass() != obj.getClass()){
+            return false; //jesli mają inne id zwraca false
+        }
+        Employee employee = (Employee) obj;
+        return id == employee.id; //zwracane id jest id pracownika
     }
     public abstract void work();
 }
